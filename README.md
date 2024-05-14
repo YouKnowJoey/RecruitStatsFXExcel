@@ -1,6 +1,6 @@
 # RecruitStatsFXExcel
 
-RecruitStatsFXExcel is a JavaFX-based application designed to streamline recruitment statistics management by facilitating Excel file imports, updating data through forms, and handling Common Access Card (CaC) certificates. Future endeavors are to use python to conduct data analytics on the recruitment data.
+RecruitStatsFXExcel is a JavaFX-based application designed to streamline recruitment statistics management by facilitating Excel file imports, updating data through forms, and handling Common Access Card (CaC) certificates. Future endeavors are to conduct data analytics on the recruitment data.
 
 ## Features
 
