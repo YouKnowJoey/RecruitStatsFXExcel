@@ -1,0 +1,4 @@
+--patch-module
+com.mycompany.liaisondash=_
+--add-reads
+com.mycompany.liaisondash=ALL-UNNAMED
