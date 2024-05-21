@@ -44,7 +44,7 @@ Contributions are welcome! If you'd like to contribute to RecruitStatsFXExcel, p
 
 ## License
 
-This project is licensed under the GPL-3.0 license - see the LICENSE.txt file for details.
+This project is licensed under the Apache license - see the LICENSE.txt file for details.
 
 ## Contact
 
