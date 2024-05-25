@@ -1,5 +1,6 @@
 package com.mycompany.liaisondash;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
@@ -11,19 +12,22 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 public class NewFormController implements Initializable{
     
     //Global Table Object - Data Singleton
     private StreamedTableView streamedTable = StreamedTableView.getInstance();
 
-    
-    //New Volunteer Object- Form Creation
+    //New Volunteer Object - Form Creation
     private AzVolunteer azRecruit = new AzVolunteer();
-    
+      
     //New Recruit Variables
     @FXML
     private TextField firstName;
@@ -61,12 +65,13 @@ public class NewFormController implements Initializable{
     private ChoiceBox<String> chooseClearance;
     @FXML
     private ChoiceBox<String> chooseVolunteerType;
-
+    
     @Override
     public void initialize(URL url, ResourceBundle rb){
         newRecruitComponents();
     }
-    public void newRecruitComponents() {
+       
+    private void newRecruitComponents() {
         // ChoiceBoxes for New Recuit Tab
 
         //Choose Liaison Box
@@ -192,5 +197,33 @@ public class NewFormController implements Initializable{
         String combinedText = textField1.getText().trim() + textField2.getText().trim() + textField3.getText().trim();
         return combinedText;
     }
+    
+    @FXML
+    private void previewPDF(ActionEvent event){
+        PDFEditor pdfEditor = new PDFEditor();
+        VBox pdfPreview = pdfEditor.previewPDF();
+        try {
+            // Load the FXML file
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("pdf.fxml"));
+            Parent root = loader.load();
+            
+            // Get the controller for pdf.fxml
+            PDFController pdfController = loader.getController();
+            
+            // Add the PDF preview VBox to the pdfPreviewContainer in pdf.fxml
+            pdfController.setPDFPreview(pdfPreview);
+            
+            // Create the scene
+            Scene scene = new Scene(root);
 
+            // Create the stage and set the scene
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.setTitle("PDF Preview");
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+            // Handle error loading the FXML file
+        }
+    }
 }

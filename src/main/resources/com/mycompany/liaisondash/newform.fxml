@@ -67,7 +67,12 @@
                         </VBox>
                      </children>
                   </HBox>
-                  <Button fx:id="submitApp" mnemonicParsing="false" onAction="#submitApplication" text="Submit Application" />
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
+               <children>
+                  <Button fx:id="previewPDF" mnemonicParsing="false" onAction="#previewPDF" text="Preview PDF" />
+                        <Button fx:id="submitApp" mnemonicParsing="false" onAction="#submitApplication" text="Submit Application" />
+               </children>
+            </HBox>
                </children>
             </VBox>
     </children>

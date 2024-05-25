@@ -20,6 +20,7 @@ import java.io.IOException;
  */
 public class PrimaryController {
     
+    //Global Table Object - Data Singleton
     private StreamedTableView streamTable = StreamedTableView.getInstance();
 
     //Import Tab Variables

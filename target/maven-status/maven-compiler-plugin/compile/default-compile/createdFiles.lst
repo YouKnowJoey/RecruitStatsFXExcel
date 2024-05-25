@@ -12,3 +12,4 @@ com\mycompany\liaisondash\PrimaryController.class
 module-info.class
 com\mycompany\liaisondash\BioInfo$Gender.class
 com\mycompany\liaisondash\JavaFxException$AlertType.class
+com\mycompany\liaisondash\PDFController.class
