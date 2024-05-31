@@ -20,6 +20,7 @@ import org.apache.pdfbox.text.PDFTextStripper;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
+import javafx.scene.transform.Scale;
 import javafx.embed.swing.SwingFXUtils;
 
 import java.awt.image.BufferedImage;
@@ -30,10 +31,13 @@ public class PDFEditor{
     // PDF file Path (relative to project)
     private static final String PDF_PATH = "src/main/resources/com/mycompany/liaisondash/RangerVolunteerStatement_SSGGarcia.pdf";
     private PDDocument document;
+    private VBox pdfContainer; 
     private String pdfText;
+    private Scale scaleTransform;
 
     public PDFEditor() {
         initiatePDF();
+        pdfContainer = createVBoxOfPDF();
     }
 
     private void initiatePDF(){
@@ -41,7 +45,6 @@ public class PDFEditor{
             document = Loader.loadPDF(new File(PDF_PATH));
             // Create PDFTextStripper object
             PDFTextStripper pdfStripper = new PDFTextStripper();
-
             // Extract text from PDF
             pdfText = pdfStripper.getText(document);
 
@@ -50,13 +53,7 @@ public class PDFEditor{
         }
     }
 
-    public void testTextPDF() {
-        // Display extracted text
-        System.out.println("Text extracted from PDF:\n");
-        System.out.println(pdfText);
-    }
-
-    public VBox previewPDF() {
+    private VBox createVBoxOfPDF() {
         VBox vbox = new VBox();
         try {
             PDFRenderer pdfRenderer = new PDFRenderer(document);
@@ -72,6 +69,17 @@ public class PDFEditor{
         }
         return vbox;
     }
+
+    public void testTextPDF() {
+        // Display extracted text
+        System.out.println("Text extracted from PDF:\n");
+        System.out.println(pdfText);
+    }
+    
+    public VBox previewPDF() {
+       return pdfContainer; 
+    }
+
 
     //method --- public signPDF(){use CaC authentication certifcates}
     

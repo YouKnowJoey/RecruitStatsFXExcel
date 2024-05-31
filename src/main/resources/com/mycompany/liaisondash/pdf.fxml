@@ -39,7 +39,7 @@
 <?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="777.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.liaisondash.PDFController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.liaisondash.PDFController">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
@@ -59,16 +59,15 @@
             <MenuItem mnemonicParsing="false" text="Quit" />
           </items>
         </Menu>
-        <Menu mnemonicParsing="false" text="Edit">
+        <Menu mnemonicParsing="false" text="Zoom">
           <items>
-            <MenuItem mnemonicParsing="false" text="Undo" />
-            <MenuItem mnemonicParsing="false" text="Redo" />
+            <MenuItem mnemonicParsing="false" onAction="#zoomOut" text="Zoom Out" />
             <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Cut" />
+            <MenuItem mnemonicParsing="false" onAction="#zoomIn" text="Zoom In " />
+            <SeparatorMenuItem mnemonicParsing="false" />
             <MenuItem mnemonicParsing="false" text="Copy" />
             <MenuItem mnemonicParsing="false" text="Paste" />
             <MenuItem mnemonicParsing="false" text="Delete" />
-            <SeparatorMenuItem mnemonicParsing="false" />
             <MenuItem mnemonicParsing="false" text="Select All" />
             <MenuItem mnemonicParsing="false" text="Unselect All" />
           </items>
@@ -80,7 +79,7 @@
         </Menu>
       </menus>
     </MenuBar>
-      <ScrollPane pannable="true" prefHeight="824.0" prefWidth="1000.0">
+      <ScrollPane fx:id="scrollPane" pannable="true" prefHeight="824.0" prefWidth="1000.0">
          <content>
             <VBox fx:id="pdfPreviewContainer" prefHeight="735.0" prefWidth="1000.0" />
          </content>
